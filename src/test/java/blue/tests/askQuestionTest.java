@@ -1,8 +1,8 @@
 package blue.tests;
 import blue.webpages.ContactUsPage;
 import blue.webpages.HomePage;
-import org.junit.After;
 import org.junit.Assert;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -37,6 +37,7 @@ public class askQuestionTest {
 
         String keyString = "Simple Automated Test";
         contactUsObj.setQuestionTextBox(keyString);
+        // ToDo can't find locator for inserted in the texbox text - unusual case
 //        String actualQuestionText = contactUsObj.getQuestionText();
 //        Assert.assertTrue(keyString.contentEquals(actualQuestionText));
         contactUsObj.setFirstName("Blue");

@@ -5,11 +5,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ContactUsPage {
 
     private WebDriver driver;
+    WebDriverWait wait;
 
     @FindBy(tagName = "h1")
     WebElement heading;
@@ -53,27 +56,29 @@ public class ContactUsPage {
         this.driver=driver;
         //Initialize Elements
         PageFactory.initElements(driver, this);
+        wait=new WebDriverWait(driver, 10);
     }
 
     public void setQuestionTextBox(String questionText) {
-        questionTextbox.clear();
-        questionTextbox.sendKeys(questionText);
+        // new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(lp.btnSignIn())).click();
+        wait.until(ExpectedConditions.visibilityOf(questionTextbox)).clear();
+        wait.until(ExpectedConditions.visibilityOf(questionTextbox)).sendKeys(questionText);
     }
     public String getQuestionText() {
         return questionTextbox.getText();
     }
 
     public void setFirstName(String nameInput){
-        firstNameInput.clear();
-        firstNameInput.sendKeys(nameInput);
+        wait.until(ExpectedConditions.visibilityOf(firstNameInput)).clear();
+        wait.until(ExpectedConditions.visibilityOf(firstNameInput)).sendKeys(nameInput);
     }
     public String setFirstName(){
         return firstNameInput.getText();
     }
 
     public void setLastName(String lastName){
-        lastNameInput.clear();
-        lastNameInput.sendKeys(lastName);
+        wait.until(ExpectedConditions.visibilityOf(lastNameInput)).clear();
+        wait.until(ExpectedConditions.visibilityOf(lastNameInput)).sendKeys(lastName);
     }
 
     public String getLastName(){
@@ -82,8 +87,8 @@ public class ContactUsPage {
 
     public void setEmail (String email){
         // ToDo check e-mail
-        emailInput.clear();
-        emailInput.sendKeys(email);
+        wait.until(ExpectedConditions.visibilityOf(emailInput)).clear();
+        wait.until(ExpectedConditions.visibilityOf(emailInput)).sendKeys(email);
     }
 
     public String getEmail (){
@@ -92,8 +97,8 @@ public class ContactUsPage {
 
     public void  setPhone(String phoneNumber){
         // ToDo check phone number
-        phoneInput.clear();
-        phoneInput.sendKeys(phoneNumber);
+        wait.until(ExpectedConditions.visibilityOf(emailInput)).clear();
+        wait.until(ExpectedConditions.visibilityOf(emailInput)).sendKeys(phoneNumber);
     }
 
     public String  getPhone(){
