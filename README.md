@@ -1,2 +1,2 @@
 # JUnitTest
-Sandbox project
+Java. Maven. JUnit. Sandbox project. 
